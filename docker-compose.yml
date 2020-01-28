@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  # SERVICES
+  customer_info:
+    build:
+      context: ./customer-info
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+
+  customer_address:
+    build:
+      context: ./customer-address
+      dockerfile: Dockerfile
+    ports:
+      - 9080:8081
+    depends_on:
+      -  customer_info
